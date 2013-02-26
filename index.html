@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Coding Dance!</title>
+	<link rel="stylesheet" type="text/css" herf="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/cloud.css" />
+	
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="js/itunes.js"></script>
+
+</head>
+<body>
+	<ul id="unidades" class="itunes">
+		<li data-id="1">
+			<img src="img/acdc.jpg" width="200px" height="200px" />
+			<header>
+				<h1>For Those About To Rock<h1>			
+				<h2>AC/DC</h2>
+			</header>
+		</li>
+		<li data-id="2">
+			<img src="img/backinblack.jpg" width="200px" height="200px" />
+			<header>
+				<h1>For Those About To Rock<h1>			
+				<h2>AC/DC</h2>
+			</header>
+		</li>
+		<li data-id="3">
+			<img src="img/familyjewels.jpg" width="200px" height="200px" />
+			<header>
+				<h1>Family Jewels<h1>			
+				<h2>AC/DC</h2>
+			</header>
+		</li>	
+		<li data-id="4">
+			<img src="img/highvoltage.jpg" width="200px" height="200px" />
+			<header>
+				<h1>High Voltage<h1>			
+				<h2>AC/DC</h2>
+			</header>
+		</li>	
+		<li data-id="5">
+			<img src="img/jailbreak.jpg" width="200px" height="200px" />
+			<header>
+				<h1>Jailbreak<h1>			
+				<h2>AC/DC</h2>
+			</header>
+		</li>
+		<li data-id="6">
+			<img src="img/meteora.jpg" width="200px" height="200px" />
+			<header>
+				<h1>Meteora<h1>			
+				<h2>Linkin Park</h2>
+			</header>
+		</li>	
+		<li data-id="7">
+			<img src="img/quietriot.jpg" width="200px" height="200px" />
+			<header>
+				<h1>The Very best<h1>			
+				<h2>Quiet Riot</h2>
+			</header>
+		</li>	
+		<li data-id="8">
+			<img src="img/revelations.jpg" width="200px" height="200px" />
+			<header>
+				<h1>Revelations<h1>			
+				<h2>Audioslave</h2>
+			</header>
+		</li>	
+		<li data-id="9">
+			<img src="img/audioslave.jpg" width="200px" height="200px" />
+			<header>
+				<h1>Audioslave<h1>			
+				<h2>Audioslave</h2>
+			</header>
+		</li>	
+		<li data-id="10">
+			<img src="img/accept.jpg" width="200px" height="200px" />
+			<header>
+				<h1>Objection Overruled<h1>			
+				<h2>Accept</h2>
+			</header>
+		</li>	
+		<li data-id="11">
+			<img src="img/accept_2.jpg" width="200px" height="200px" />
+			<header>
+				<h1>Blood of the Nation<h1>			
+				<h2>Accept</h2>
+			</header>
+		</li>																				
+	</ul>
+	
+	<script src="js/mustache.js"></script>	
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="js/modernizr.js"></script>
+	<script src="js/itunes.js"></script>	
+	
+	<script type="text/javascript">
+
+		$(document).ready(function () {				
+
+		    $('.itunes').iTunes({
+		        template: '#content-template',
+		        ajax: {
+		            config: { url: "unidade.json" },
+		            data: function () {
+		                return {
+		                    unidadeId: $(this).attr('data-id') 
+		                }
+		            }
+		        }
+		    });
+		});
+
+	</script>
+	
+	<script id="content-template" type="text/template">
+	<div class="description">
+		<div class="wrapperArrow">
+			<div class="arrow">
+				<div class="arrowBg"></div>
+			</div>
+		</div>
+		<div class="content">
+			{{#unidade}}
+				<h1>{{numeroUnidade}}</h1>
+				<p>{{descricao}}</p>
+			{{/unidade}}
+		</div>
+	</div>	
+	</script>
+</body>
+</html>
