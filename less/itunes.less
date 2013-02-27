@@ -1,0 +1,196 @@
+.transition(@transition) {
+  transition: @transition;
+  -moz-transition: @transition; /* Firefox 4 */
+  -webkit-transition: @transition; /* Safari and Chrome */
+  -o-transition: @transition; /* Opera */  
+}
+
+.transform(@transform) {
+  transform: @transform;
+  -ms-transform: @transform; /* IE 9 */
+  -webkit-transform: @transform; /* Safari and Chrome */
+  -o-transform: @transform; /* Opera */
+  -moz-transform: @transform; /* Firefox */
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body > header {
+  height: 63px;
+  background: url(../img/itunes.png);
+
+  h1 {
+    font-size: 24px;
+    text-shadow: 1px 1px 0px white;
+    line-height: 63px;
+    margin-left: 20px;
+  }
+}
+
+h1 {
+  color: #333;
+  font: lighter 14px open-sans, serif;
+}
+
+h2 {
+  color: #aaa;
+  font: lighter 12px open-sans, serif;
+}
+
+.itunes {
+  list-style-type: none;
+  margin: 10% 10%;
+  position: relative;
+
+  li {
+    width: 134px;
+    height: 175px;
+    margin: 10px 10px;
+    float: left;
+
+    * {
+      .transition(all 0.2s linear);
+    }
+
+    & > div {
+      height: 134px;
+      width: 134px;
+      position: relative;    
+
+      img {
+        width: 100%;
+        bottom: 0;
+
+        position: absolute;
+
+        box-shadow: 0 0 10px #AFAFAF;      
+      }
+    }
+
+    &.active {
+      & > div > img {
+        width: 110%;
+        left: -5%;
+        bottom: -5%;
+        box-shadow: 0 0 10px #B8B8B8;
+      }  
+
+      h1 {
+        margin-top: 10px;
+      }  
+
+      h2 {
+        opacity: 0;
+      }
+    }
+
+    h1 {
+      width: 134px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+}
+
+.description {
+  width: 100%;
+  height: 0;
+
+  overflow: hidden;
+  
+  position: relative;
+  clear: both;
+  
+  .transition(all 0.5s);
+}
+
+.description.active {
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.description.active .content {
+  height: 185px;
+}
+
+.description .wrapperArrow,
+.description .arrow {
+  width: 30px;
+  height: 15px;
+  overflow: hidden; 
+}
+
+.description .close {
+  width: 20px;
+  height: 20px;
+  top: 24px;
+  right: 10px;
+  background: #9B9B9B;
+  border-radius: 20px;
+  line-height: 20px;
+  color: #FCFCFC;
+  z-index: 2;  
+  cursor: pointer;
+}
+
+.description .wrapperArrow {
+  top: 2px;
+  position: relative;
+}
+
+.description.active .wrapperArrow.down .arrow {
+  top: 17px;
+}
+
+.description.active .wrapperArrow.up .arrow {
+  top: 0;
+}
+
+.description .arrow {
+  width: 30px;
+  height: 15px;
+  position: absolute;
+  top: 0px;
+  .transition(all 0.5s);
+}
+
+.description .arrow:before,
+.description .arrow:after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  .transform(rotate(-45deg));
+  top: -15px;
+  box-shadow: 0px 0 5px #C7C7C7;
+  z-index: 2;
+}
+
+.description .arrow:before {
+  left: -21px;
+}
+
+.description .arrow:after{
+  left: 21px;
+}
+
+.description .arrow .arrowBg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  border: 15px solid transparent;
+  border-bottom: 15px solid #E9E9E9;
+}
+
+.description .content {
+  box-shadow: inset 0px 0 5px #C7C7C7;
+  background-color: #E9E9E9;
+  overflow: hidden;
+  height: 0;
+  .transition(all 0.5s);
+}
