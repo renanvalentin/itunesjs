@@ -1,0 +1,26 @@
+{
+	"albums": {
+		"1": {
+			"artist": "AC/DC",
+			"album": "For Those About To Rock",
+			"songs": [
+				"Inject The Venom",
+				"Spellbound",
+				"Snowballed",
+				"Put The Finger On You"
+			],
+			"audio": "mp3/ftar.mp3"
+		},
+		"2": {
+			"artist": "AC/DC",
+			"album": "Back in Black",
+			"songs": [
+				"Hells Bells",
+				"You Shoock Me All Night Long",
+				"Shoot To Thrill",
+				"Shake A Leg"
+			],
+			"audio": "mp3/hb.mp3"
+		}
+	}
+}

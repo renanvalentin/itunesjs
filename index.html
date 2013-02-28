@@ -16,17 +16,17 @@
 		<h1>iTunesJs</h1>
 	</header>
 	<ul id="unidades" class="itunes">
-		<li data-id="1">
+		<li data-id="1" data-style="ftar">
 			<div class="img"><img src="img/acdc.jpg"  /></div>
 			<header>
 				<h1>For Those About To Rock</h1>			
 				<h2>AC/DC</h2>
 			</header>
 		</li>
-		<li data-id="2">
+		<li data-id="2" data-style="bib">
 			<div class="img"><img src="img/backinblack.jpg"  /></div>
 			<header>
-				<h1>For Those About To Rock</h1>			
+				<h1>Back in Black</h1>			
 				<h2>AC/DC</h2>
 			</header>
 		</li>
@@ -107,11 +107,16 @@
 		    $('.itunes').iTunes({
 		        template: '#content-template',
 		        ajax: {
-		            config: { url: "unidade.json" },
+		            config: { url: "albums.json" },
 		            data: function () {
 		                return {
-		                    unidadeId: $(this).attr('data-id') 
+		                    id: $(this).attr('data-id') 
 		                }
+		            },
+		            decoder: function(result, el) {
+		            	var id = $(el).attr("data-id");		            	
+
+		            	return result.albums[id];
 		            }
 		        }
 		    });
@@ -127,10 +132,10 @@
 			</div>
 		</div>
 		<div class="content">
-			{{#unidade}}
-				<h1>{{numeroUnidade}}</h1>
-				<p>{{descricao}}</p>
-			{{/unidade}}
+			
+				<h1>{{album}}</h1>
+				<h2>{{artist}}</h2>
+			
 		</div>
 	</div>	
 	</script>

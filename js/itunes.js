@@ -9,6 +9,7 @@
             ajax: {
                 config: {},
                 data: function () { },
+                decoder: function (result, el) {},
                 done: function () { }
             }
         };
@@ -60,6 +61,8 @@
             this.hideAnimation();
             $(this.element).find('li').removeClass('active');
         },
+
+        style: "",
  
         getTemplateElement: function () {
             return this.options.wrapper + " " + this.options.template;
@@ -107,13 +110,17 @@
             if (!$(el).hasClass("active")) {
  
                 $.ajax(_self.options.ajax.config).done(function(result) {
-                    if (_self.options.ajax.done != null)
-                        _self.options.ajax.done.call(this);
- 
+                 
+                    if(_self.options.ajax.decoder != null);
+                        result = _self.options.ajax.decoder.apply(_self, [result, el]);
+
                     var content = _self.templateTransform(result),
                         row = parseInt($(_self.options.cls, _self.element).attr('data-row')),
-                        arrowPosition = ($(el).position().left + $(el).outerWidth() / 2) - 15;
- 
+                        arrowPosition = ($(el).position().left + $(el).outerWidth() / 2) - 15,
+                        style = $(el).attr("data-style");
+
+                
+
                     if (row != nextRow) {
                         $(content).insertAfter($(_self.element).find('li').eq(nextIndex));
                         $(content).find(".wrapperArrow").css("left", arrowPosition);
@@ -123,10 +130,15 @@
                         _self.animateArrow(content, arrowPosition);
                         $(_self.options.cls).find('.content').html($(content).find('.content').html());
                     }
+
+                    $(_self.options.cls).removeClass(_self.style).addClass(style);
+                    _self.style = style;
  
                     $(content).attr('data-row', nextRow);
                     $(el).addClass("active").siblings("li").removeClass("active");
  
+                    if (_self.options.ajax.done != null)
+                        _self.options.ajax.done.call(this);
                });
             } else {
                 $(el).removeClass("active");
