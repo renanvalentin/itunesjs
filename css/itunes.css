@@ -24,13 +24,13 @@ h2 {
   list-style-type: none;
   position: relative;
 }
-.itunes li {
+.itunes > li {
   width: 134px;
   height: 175px;
   margin: 10px 10px;
   float: left;
 }
-.itunes li * {
+.itunes > li * {
   transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
   /* Firefox 4 */
@@ -41,34 +41,41 @@ h2 {
   -o-transition: all 0.2s linear;
   /* Opera */
 }
-.itunes li > div {
+.itunes > li > div {
   height: 134px;
   width: 134px;
   position: relative;
 }
-.itunes li > div img {
+.itunes > li > div img {
   width: 100%;
   bottom: 0;
   position: absolute;
   box-shadow: 0 0 10px #AFAFAF;
 }
-.itunes li.active > div > img {
+.itunes > li.active > div > img {
   width: 110%;
   left: -5%;
   bottom: -5%;
   box-shadow: 0 0 10px #B8B8B8;
 }
-.itunes li.active h1 {
+.itunes > li.active h1 {
   margin-top: 10px;
 }
-.itunes li.active h2 {
+.itunes > li.active h2 {
   opacity: 0;
 }
-.itunes li h1 {
+.itunes > li h1 {
   width: 134px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+.itunes:after {
+  content: ".";
+  height: 1%;
+  visibility: hidden;
+  display: block;
+  clear: both;
 }
 .description {
   width: 100%;
@@ -87,11 +94,11 @@ h2 {
   /* Opera */
 }
 .description.active {
-  height: 200px;
+  height: 300px;
   margin-bottom: 20px;
 }
 .description.active .content {
-  height: 185px;
+  height: 225px;
 }
 .description.active .wrapperArrow.down .arrow {
   top: 17px;
@@ -172,6 +179,15 @@ h2 {
   z-index: 1;
   border: 15px solid transparent;
   border-bottom: 15px solid #E9E9E9;
+  transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  /* Firefox 4 */
+
+  -webkit-transition: all 0.5s;
+  /* Safari and Chrome */
+
+  -o-transition: all 0.5s;
+  /* Opera */
 }
 .description .content {
   height: 0;
@@ -179,6 +195,7 @@ h2 {
   overflow: hidden;
   box-shadow: inset 0px 0 5px #C7C7C7;
   background-color: #E9E9E9;
+  position: relative;
   transition: all 0.5s;
   -moz-transition: all 0.5s;
   /* Firefox 4 */
@@ -192,8 +209,37 @@ h2 {
 .description .content h1 {
   font-size: 22px;
 }
+.description .content h1 i {
+  margin-left: 5px;
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: middle;
+}
 .description .content h2 {
   font-size: 18px;
+}
+.description .content ol {
+  width: 50%;
+  margin-top: 5px;
+  list-style-position: inside;
+}
+.description .content ol li {
+  width: 50%;
+  margin: 2px 0;
+  float: left;
+  font: lighter 12px open-sans, serif;
+}
+.description .content .cover {
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  right: 0;
+  margin-top: -100px;
+  box-shadow: inset 0 0 20px 20px #E9E9E9;
+  position: absolute;
+}
+audio {
+  display: none;
 }
 .description.bib .arrow:before,
 .description.bib .arrow:after {
@@ -212,4 +258,229 @@ h2 {
 }
 .description.bib .content h2 {
   color: #b8b8aa;
+}
+.description.bib .content ol li {
+  color: #eeeeee;
+}
+.description.bib .content .cover {
+  box-shadow: inset 0 0 20px 20px #131313;
+}
+.description.bib .content audio {
+  display: none;
+}
+.description.ftatr .arrow:before,
+.description.ftatr .arrow:after {
+  box-shadow: 0px 0 5px #292929;
+}
+.description.ftatr .arrow .arrowBg {
+  border: 15px solid transparent;
+  border-bottom: 15px solid #ce611a;
+}
+.description.ftatr .content {
+  box-shadow: inset 0px 0 5px #292929;
+  background-color: #ce611a;
+}
+.description.ftatr .content h1 {
+  color: #20001c;
+}
+.description.ftatr .content h2 {
+  color: #3e1d03;
+}
+.description.ftatr .content ol li {
+  color: #3e1d03;
+}
+.description.ftatr .content .cover {
+  box-shadow: inset 0 0 20px 20px #ce611a;
+}
+.description.ftatr .content audio {
+  display: none;
+}
+.description.fj .arrow:before,
+.description.fj .arrow:after {
+  box-shadow: 0px 0 5px #484943;
+}
+.description.fj .arrow .arrowBg {
+  border: 15px solid transparent;
+  border-bottom: 15px solid #acaea2;
+}
+.description.fj .content {
+  box-shadow: inset 0px 0 5px #484943;
+  background-color: #acaea2;
+}
+.description.fj .content h1 {
+  color: #242424;
+}
+.description.fj .content h2 {
+  color: #383b30;
+}
+.description.fj .content ol li {
+  color: #242424;
+}
+.description.fj .content .cover {
+  box-shadow: inset 0 0 20px 20px #acaea2;
+}
+.description.fj .content audio {
+  display: none;
+}
+.description.jb .arrow:before,
+.description.jb .arrow:after {
+  box-shadow: 0px 0 5px #060606;
+}
+.description.jb .arrow .arrowBg {
+  border: 15px solid transparent;
+  border-bottom: 15px solid #060606;
+}
+.description.jb .content {
+  box-shadow: inset 0px 0 5px #060606;
+  background-color: #060606;
+}
+.description.jb .content h1 {
+  color: #ffffff;
+}
+.description.jb .content h2 {
+  color: #eeb326;
+}
+.description.jb .content ol li {
+  color: #ffffff;
+}
+.description.jb .content .cover {
+  box-shadow: inset 0 0 20px 20px #060606;
+}
+.description.jb .content audio {
+  display: none;
+}
+.description.hv .arrow:before,
+.description.hv .arrow:after {
+  box-shadow: 0px 0 5px #da9d25;
+}
+.description.hv .arrow .arrowBg {
+  border: 15px solid transparent;
+  border-bottom: 15px solid #f1ae29;
+}
+.description.hv .content {
+  box-shadow: inset 0px 0 5px #da9d25;
+  background-color: #f1ae29;
+}
+.description.hv .content h1 {
+  color: #0e3437;
+}
+.description.hv .content h2 {
+  color: #494949;
+}
+.description.hv .content ol li {
+  color: #0e251b;
+}
+.description.hv .content .cover {
+  box-shadow: inset 0 0 20px 20px #f1ae29;
+}
+.description.hv .content audio {
+  display: none;
+}
+.description.rv .arrow:before,
+.description.rv .arrow:after {
+  box-shadow: 0px 0 5px #1b1b1b;
+}
+.description.rv .arrow .arrowBg {
+  border: 15px solid transparent;
+  border-bottom: 15px solid #1b1b1b;
+}
+.description.rv .content {
+  box-shadow: inset 0px 0 5px #1b1b1b;
+  background-color: #1b1b1b;
+}
+.description.rv .content h1 {
+  color: #ffffff;
+}
+.description.rv .content h2 {
+  color: #acbfbe;
+}
+.description.rv .content ol li {
+  color: #ffffff;
+}
+.description.rv .content .cover {
+  box-shadow: inset 0 0 20px 20px #1b1b1b;
+}
+.description.rv .content audio {
+  display: none;
+}
+.description.as .arrow:before,
+.description.as .arrow:after {
+  box-shadow: 0px 0 5px #5a74ad;
+}
+.description.as .arrow .arrowBg {
+  border: 15px solid transparent;
+  border-bottom: 15px solid #b6c5e7;
+}
+.description.as .content {
+  box-shadow: inset 0px 0 5px #5a74ad;
+  background-color: #b6c5e7;
+}
+.description.as .content h1 {
+  color: #00002b;
+}
+.description.as .content h2 {
+  color: #594d4d;
+}
+.description.as .content ol li {
+  color: #00002b;
+}
+.description.as .content .cover {
+  box-shadow: inset 0 0 20px 20px #b6c5e7;
+}
+.description.as .content audio {
+  display: none;
+}
+.description.oo .arrow:before,
+.description.oo .arrow:after {
+  box-shadow: 0px 0 5px #616161;
+}
+.description.oo .arrow .arrowBg {
+  border: 15px solid transparent;
+  border-bottom: 15px solid #222c2e;
+}
+.description.oo .content {
+  box-shadow: inset 0px 0 5px #616161;
+  background-color: #222c2e;
+}
+.description.oo .content h1 {
+  color: #eee5e3;
+}
+.description.oo .content h2 {
+  color: #fc554e;
+}
+.description.oo .content ol li {
+  color: #eee5e3;
+}
+.description.oo .content .cover {
+  box-shadow: inset 0 0 20px 20px #222c2e;
+}
+.description.oo .content audio {
+  display: none;
+}
+.description.bn .arrow:before,
+.description.bn .arrow:after {
+  box-shadow: 0px 0 5px #4f0903;
+}
+.description.bn .arrow .arrowBg {
+  border: 15px solid transparent;
+  border-bottom: 15px solid #580a04;
+}
+.description.bn .content {
+  box-shadow: inset 0px 0 5px #4f0903;
+  background-color: #580a04;
+}
+.description.bn .content h1 {
+  color: #b49d7f;
+}
+.description.bn .content h2 {
+  color: #98745f;
+}
+.description.bn .content ol li {
+  color: #b49d7f;
+}
+.description.bn .content .cover {
+  box-shadow: inset 0 0 20px 20px #580a04;
+}
+.description.bn .content audio {
+  display: none;
 }

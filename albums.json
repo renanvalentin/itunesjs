@@ -9,7 +9,8 @@
 				"Snowballed",
 				"Put The Finger On You"
 			],
-			"audio": "mp3/ftar.mp3"
+			"audio": "mp3/ftar.mp3",
+			"cover": "img/acdc.jpg"
 		},
 		"2": {
 			"artist": "AC/DC",
@@ -18,9 +19,139 @@
 				"Hells Bells",
 				"You Shoock Me All Night Long",
 				"Shoot To Thrill",
-				"Shake A Leg"
+				"Shake A Leg",
+				"Rock And Roll Ain't Noise Poll"
 			],
-			"audio": "mp3/hb.mp3"
-		}
+			"audio": "mp3/hb.mp3",
+			"cover": "img/backinblack.jpg"
+		},
+		"3": {
+			"artist": "AC/DC",
+			"album": "Family Jewels",
+			"songs": [
+				"Show Business",
+				"Hight Voltage",
+				"Shoot To Thrill",
+				"It's A Long Way to the Top",
+				"T.N.T",
+				"Jailbreak",
+				"Dirty Deeds Done Dirt Cheap"
+			],
+			"audio": "mp3/hb.mp3",
+			"cover": "img/familyjewels.jpg"
+		},
+		"4": {
+			"artist": "AC/DC",
+			"album": "Jailbreak",
+			"songs": [
+				"Jailbreak",
+				"You Ain't Got A Hold On Me",
+				"Show Business",
+				"Soul Stripper",
+				"Baby, Please Dont't Go"				
+			],
+			"audio": "mp3/jb.mp3",
+			"cover": "img/Jailbreak.jpg"
+		},
+		"5": {
+			"artist": "AC/DC",
+			"album": "High Voltage",
+			"songs": [
+				"It's A Long Way To The Top",
+				"Rock'n' Roll Singer",
+				"The Jack",
+				"Live Wire",
+				"T.N.T",
+				"Can I Sit Next To You Girl",
+				"Little Lover",
+				"She's Got Balls",
+				"High Voltage"		
+			],
+			"audio": "mp3/lw.mp3",
+			"cover": "img/Jailbreak.jpg"
+		},
+		"6": {
+			"artist": "Quiet Riot",
+			"album": "The Very Best Of Quiet Riot",
+			"songs": [
+				"Mental Health",
+				"Cum On Feel The Noize",
+				"Mama Weer All Crazee Now",
+				"Condition Critical",
+				"Slick Black Cadillac",
+				"The Wild And The Young",
+				"Party All Night",
+				"Let's Get Crazy",
+				"Sign Of The Times",
+				"Don't Wanna Let You Go"		
+			],
+			"audio": "mp3/mh.mp3",
+			"cover": "img/quietriot.jpg"
+		},
+		"7": {
+			"artist": "Revelations",
+			"album": "Audioslave",
+			"songs": [
+				"One And The Same",
+				"Sound Of A Gun",
+				"Somedays",
+				"Nothing Left To Say But Goodbye"
+			],
+			"audio": "mp3/sd.mp3",
+			"cover": "img/revelations.jpg"
+		},
+		"8": {
+			"artist": "Audioslave",
+			"album": "Audioslave",
+			"songs": [
+				"Cochise",
+				"Show Me How To Live",
+				"Gasoline",
+				"What You Are",
+				"Set It Off",
+				"Shadow On The Sun",
+				"I Am The Highway",
+				"Exploder",
+				"Hypnotize"
+			],
+			"audio": "mp3/gs.mp3",
+			"cover": "img/audioslave.jpg"
+		},
+		"9": {
+			"artist": "Objection Overruled",
+			"album": "Accept",
+			"songs": [
+				"Objection Overruled",
+				"I Don't Wanna Be Like You",
+				"Protectors Of Terror",
+				"Slaves To Metal",
+				"All Or Nothing",
+				"Bulletproof",
+				"Amamos La Vida",
+				"Sick, Dirty And Mean",
+				"Donation",
+				"Just By My Own"
+			],
+			"audio": "mp3/oo.mp3",
+			"cover": "img/accept_2.jpg"
+		},
+		"10": {
+			"artist": "Blood Of The Nations",
+			"album": "Accept",
+			"songs": [
+				"Beat The Bastards",
+				"Teutonic Terror",
+				"The Abyss",
+				"Blood Of The Nations",
+				"Shades Of Death",
+				"Locked And Loaded",
+				"Time Machine",
+				"Kill The Pain",
+				"Rolling Thunder",
+				"Pandemic"
+			],
+			"audio": "mp3/oo.mp3",
+			"cover": "img/accept_2.jpg"
+		}																				
 	}
 }

@@ -5,6 +5,9 @@
 	<title>Coding Dance!</title>
 	<link rel="stylesheet" type="text/css" herf="css/normalize.css" />
 	<script src="http://use.edgefonts.net/open-sans.js"></script>
+
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	
 	<link rel="stylesheet" type="text/css" href="css/itunes.css" />
 	
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -16,7 +19,7 @@
 		<h1>iTunesJs</h1>
 	</header>
 	<ul id="unidades" class="itunes">
-		<li data-id="1" data-style="ftar">
+		<li data-id="1" data-style="ftatr">
 			<div class="img"><img src="img/acdc.jpg"  /></div>
 			<header>
 				<h1>For Those About To Rock</h1>			
@@ -30,63 +33,56 @@
 				<h2>AC/DC</h2>
 			</header>
 		</li>
-		<li data-id="3">
+		<li data-id="3" data-style="fj">
 			<div class="img"><img src="img/familyjewels.jpg"  /></div>
 			<header>
 				<h1>Family Jewels</h1>			
 				<h2>AC/DC</h2>
 			</header>
 		</li>	
-		<li data-id="4">
-			<div class="img"><img src="img/highvoltage.jpg"  /></div>
-			<header>
-				<h1>High Voltage</h1>			
-				<h2>AC/DC</h2>
-			</header>
-		</li>	
-		<li data-id="5">
+		<li data-id="4" data-style="jb">
 			<div class="img"><img src="img/jailbreak.jpg"  /></div>
 			<header>
 				<h1>Jailbreak</h1>			
 				<h2>AC/DC</h2>
 			</header>
-		</li>
-		<li data-id="6">
-			<div class="img"><img src="img/meteora.jpg"  /></div>
+		</li>		
+		<li data-id="5" data-style="hv">
+			<div class="img"><img src="img/highvoltage.jpg"  /></div>
 			<header>
-				<h1>Meteora</h1>			
-				<h2>Linkin Park</h2>
+				<h1>High Voltage</h1>			
+				<h2>AC/DC</h2>
 			</header>
-		</li>	
-		<li data-id="7">
+		</li>		
+		<li data-id="6">
 			<div class="img"><img src="img/quietriot.jpg"  /></div>
 			<header>
 				<h1>The Very best</h1>			
 				<h2>Quiet Riot</h2>
 			</header>
 		</li>	
-		<li data-id="8">
+		<li data-id="7" data-style="rv">
 			<div class="img"><img src="img/revelations.jpg"  /></div>
 			<header>
 				<h1>Revelations</h1>			
 				<h2>Audioslave</h2>
 			</header>
 		</li>	
-		<li data-id="9">
+		<li data-id="8" data-style="as">
 			<div class="img"><img src="img/audioslave.jpg"  /></div>
 			<header>
 				<h1>Audioslave</h1>			
 				<h2>Audioslave</h2>
 			</header>
 		</li>	
-		<li data-id="10">
+		<li data-id="9" data-style="oo">
 			<div class="img"><img src="img/accept.jpg"  /></div>
 			<header>
 				<h1>Objection Overruled</h1>			
 				<h2>Accept</h2>
 			</header>
 		</li>	
-		<li data-id="11">
+		<li data-id="10" data-style="bn">
 			<div class="img"><img src="img/accept_2.jpg"  /></div>
 			<header>
 				<h1>Blood of the Nation</h1>			
@@ -120,6 +116,18 @@
 		            }
 		        }
 		    });
+
+		    $(document).on("click", ".player", function() {
+		    	var control = $(this);
+
+		    	if(control.hasClass("icon-play")) {
+	    			document.getElementById("player").play();
+		    	} else {
+					document.getElementById("player").pause();
+		    	}
+	    			
+	    		control.toggleClass("icon-play icon-pause");
+		    });
 		});
 
 	</script>
@@ -132,10 +140,20 @@
 			</div>
 		</div>
 		<div class="content">
-			
-				<h1>{{album}}</h1>
-				<h2>{{artist}}</h2>
-			
+			<h1>
+				{{album}}
+				<i class="icon-play player"></i>
+			</h1>
+			<h2>{{artist}}</h2>
+
+			<ol>
+				{{#songs}}
+					<li>{{.}}</li>
+				{{/songs}}
+			</ol>
+
+			<div class="cover" style="background-image: url({{cover}});"></div>
+			<audio src="{{audio}}" id="player" preload="auto" controls/>
 		</div>
 	</div>	
 	</script>
