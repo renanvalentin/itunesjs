@@ -4,6 +4,7 @@
             wrapper: ".itunes",
             template: "#descriptiontmpl",
             cls: ".description",
+            height: 300,
             onOpen: null,
             onClose: null,
             ajax: {
@@ -147,11 +148,12 @@
         },
  
         showAnimation: function (el) {
+            var _self = this;
             setTimeout(function () {
                 if (Modernizr.csstransitions) {
                     $(el).addClass('active');
                 } else {
-                    $(el).animate({ height: 200 }, 300).find('.content').animate({ height: 185 }, 300);
+                    $(el).animate({ height: _self.options.height }, 300).find('.content').animate({ height: _self.options.height - 15 }, 300);
                 }
             }, 300);
         },

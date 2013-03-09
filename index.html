@@ -12,7 +12,6 @@
 	
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="js/itunes.js"></script>
-
 </head>
 <body>
 	<header>
@@ -113,6 +112,14 @@
 		            	var id = $(el).attr("data-id");		            	
 
 		            	return result.albums[id];
+		            },
+		            done: function () {
+						$("audio").on({								
+								ended: function() {
+									$(".player").removeClass("player");
+									this.currentTime = 0;
+								}
+						});
 		            }
 		        }
 		    });
