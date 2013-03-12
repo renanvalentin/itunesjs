@@ -29,17 +29,13 @@ h2 {
   height: 175px;
   margin: 10px 10px;
   float: left;
+  cursor: pointer;
 }
 .itunes > li * {
   transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
-  /* Firefox 4 */
-
   -webkit-transition: all 0.2s linear;
-  /* Safari and Chrome */
-
   -o-transition: all 0.2s linear;
-  /* Opera */
 }
 .itunes > li > div {
   height: 134px;
@@ -77,6 +73,19 @@ h2 {
   display: block;
   clear: both;
 }
+.spinner {
+  height: 134px;
+  width: 134px;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: black;
+  background: rgba(0, 0, 0, 0.53);
+  color: white;
+  font-size: 36px;
+  line-height: 134px;
+  text-align: center;
+}
 .description {
   width: 100%;
   height: 0;
@@ -85,13 +94,8 @@ h2 {
   clear: both;
   transition: all 0.5s;
   -moz-transition: all 0.5s;
-  /* Firefox 4 */
-
   -webkit-transition: all 0.5s;
-  /* Safari and Chrome */
-
   -o-transition: all 0.5s;
-  /* Opera */
 }
 .description.active {
   height: 300px;
@@ -135,13 +139,8 @@ h2 {
   top: 0px;
   transition: all 0.5s;
   -moz-transition: all 0.5s;
-  /* Firefox 4 */
-
   -webkit-transition: all 0.5s;
-  /* Safari and Chrome */
-
   -o-transition: all 0.5s;
-  /* Opera */
 }
 .description .arrow:before,
 .description .arrow:after {
@@ -154,17 +153,9 @@ h2 {
   z-index: 2;
   transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
-  /* IE 9 */
-
   -webkit-transform: rotate(-45deg);
-  /* Safari and Chrome */
-
   -o-transform: rotate(-45deg);
-  /* Opera */
-
   -moz-transform: rotate(-45deg);
-  /* Firefox */
-
 }
 .description .arrow:before {
   left: -21px;
@@ -181,13 +172,8 @@ h2 {
   border-bottom: 15px solid #E9E9E9;
   transition: all 0.5s;
   -moz-transition: all 0.5s;
-  /* Firefox 4 */
-
   -webkit-transition: all 0.5s;
-  /* Safari and Chrome */
-
   -o-transition: all 0.5s;
-  /* Opera */
 }
 .description .content {
   height: 0;
@@ -198,13 +184,8 @@ h2 {
   position: relative;
   transition: all 0.5s;
   -moz-transition: all 0.5s;
-  /* Firefox 4 */
-
   -webkit-transition: all 0.5s;
-  /* Safari and Chrome */
-
   -o-transition: all 0.5s;
-  /* Opera */
 }
 .description .content h1 {
   font-size: 22px;

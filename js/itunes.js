@@ -4,11 +4,14 @@
             wrapper: ".itunes",
             template: "#descriptiontmpl",
             cls: ".description",
-            height: 300,
+            wrapperHeight: 300,
+            contentHeight: 225,
             onOpen: null,
             onClose: null,
             ajax: {
                 config: {},
+                ajaxStart: function(el) {},
+                ajaxStop: function(el) {},
                 data: function () { },
                 decoder: function (result, el) {},
                 done: function () { }
@@ -93,7 +96,7 @@
         },
  
         templateTransform: function (value) {
-            return $.parseHTML(Mustache.render($(this.options.template).html(), value).trim());
+            return $.parseHTML(Mustache.render($(this.options.template).html(), value));
         },
  
         showDescriptionBox: function (el, options, e) {
@@ -110,6 +113,8 @@
  
             if (!$(el).hasClass("active")) {
  
+                $(document).ajaxStart(_self.options.ajax.ajaxStart.apply(_self, [el])).ajaxStop(_self.options.ajax.ajaxStop.apply(_self, [el]));
+
                 $.ajax(_self.options.ajax.config).done(function(result) {
                  
                     if(_self.options.ajax.decoder != null);
@@ -118,9 +123,7 @@
                     var content = _self.templateTransform(result),
                         row = parseInt($(_self.options.cls, _self.element).attr('data-row')),
                         arrowPosition = ($(el).position().left + $(el).outerWidth() / 2) - 15,
-                        style = $(el).attr("data-style");
-
-                
+                        style = $(el).attr("data-style");                
 
                     if (row != nextRow) {
                         $(content).insertAfter($(_self.element).find('li').eq(nextIndex));
@@ -153,7 +156,7 @@
                 if (Modernizr.csstransitions) {
                     $(el).addClass('active');
                 } else {
-                    $(el).animate({ height: _self.options.height }, 300).find('.content').animate({ height: _self.options.height - 15 }, 300);
+                    $(el).animate({ height: _self.options.wrapperHeight }, 300).find('.content').animate({ height: _self.options.contentHeight }, 300);
                 }
             }, 300);
         },

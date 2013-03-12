@@ -1,16 +1,16 @@
 .transition(@transition) {
   transition: @transition;
-  -moz-transition: @transition; /* Firefox 4 */
-  -webkit-transition: @transition; /* Safari and Chrome */
-  -o-transition: @transition; /* Opera */  
+  -moz-transition: @transition; 
+  -webkit-transition: @transition; 
+  -o-transition: @transition;  
 }
 
 .transform(@transform) {
   transform: @transform;
-  -ms-transform: @transform; /* IE 9 */
-  -webkit-transform: @transform; /* Safari and Chrome */
-  -o-transform: @transform; /* Opera */
-  -moz-transform: @transform; /* Firefox */
+  -ms-transform: @transform; 
+  -webkit-transform: @transform; 
+  -o-transform: @transform; 
+  -moz-transform: @transform; 
 }
 
 .linearGradient(@start, @end) {
@@ -73,6 +73,7 @@ h2 {
     height: 175px;
     margin: 10px 10px;
     float: left;
+    cursor: pointer;
 
     * {
       .transition(all 0.2s linear);
@@ -125,6 +126,23 @@ h2 {
     display: block;
     clear: both;
   }
+}
+
+.spinner {
+  height: 134px;
+  width: 134px; 
+  left: 0;
+  top: 0;
+
+  position: absolute;
+
+  background: black;
+  background: rgba(0, 0, 0, 0.53);
+  color: white; 
+  font-size: 36px;
+  line-height: 134px;
+
+  text-align: center;  
 }
 
 .description {

@@ -15,7 +15,7 @@
 </head>
 <body>
 	<header>
-		<h1>iTunesJs</h1>
+		<h1>iTunesJS</h1>
 	</header>
 	<ul id="unidades" class="itunes">
 		<li data-id="1" data-style="ftatr">
@@ -99,30 +99,37 @@
 
 		$(document).ready(function () {				
 
-		    $('.itunes').iTunes({
-		        template: '#content-template',
-		        ajax: {
-		            config: { url: "albums.json" },
-		            data: function () {
-		                return {
-		                    id: $(this).attr('data-id') 
-		                }
-		            },
-		            decoder: function(result, el) {
-		            	var id = $(el).attr("data-id");		            	
+			$('.itunes').iTunes({
+			    template: '#content-template',
+			    ajax: {
+			        config: { url: "albums.json" },
+			        ajaxStart: function (el) {
+		        		var spinner = $.parseHTML($('#spinner-template').html());
+		        		$(spinner).appendTo($(el).find('.img'));
+			        },
+			        ajaxStop: function (el) {
+			        	$(el).find('.spinner').remove();
+			        },
+			        data: function () {
+			            return {
+			                id: $(this).attr('data-id') 
+			            }
+			        },
+			        decoder: function(result, el) {
+			        	var id = $(el).attr("data-id");		            	
 
-		            	return result.albums[id];
-		            },
-		            done: function () {
+			        	return result.albums[id];
+			        },
+			        done: function () {
 						$("audio").on({								
 								ended: function() {
 									$(".player").removeClass("player");
 									this.currentTime = 0;
 								}
 						});
-		            }
-		        }
-		    });
+			        }
+			    }
+			});
 
 		    $(document).on("click", ".player", function() {
 		    	var control = $(this);
@@ -138,31 +145,37 @@
 		});
 
 	</script>
+
+	<script id="spinner-template" type="text/template">
+		<div class="spinner">
+			<i class="icon-spinner icon-spin"></i>
+		</div>
+	</script>
 	
 	<script id="content-template" type="text/template">
-	<div class="description">
-		<div class="wrapperArrow">
-			<div class="arrow">
-				<div class="arrowBg"></div>
+		<div class="description">
+			<div class="wrapperArrow">
+				<div class="arrow">
+					<div class="arrowBg"></div>
+				</div>
 			</div>
-		</div>
-		<div class="content">
-			<h1>
-				{{album}}
-				<i class="icon-play player"></i>
-			</h1>
-			<h2>{{artist}}</h2>
+			<div class="content">
+				<h1>
+					{{album}}
+					<i class="icon-play player"></i>
+				</h1>
+				<h2>{{artist}}</h2>
 
-			<ol>
-				{{#songs}}
-					<li>{{.}}</li>
-				{{/songs}}
-			</ol>
+				<ol>
+					{{#songs}}
+						<li>{{.}}</li>
+					{{/songs}}
+				</ol>
 
-			<div class="cover" style="background-image: url({{cover}});"></div>
-			<audio src="{{audio}}" id="player" preload="auto" controls/>
-		</div>
-	</div>	
+				<div class="cover" style="background-image: url({{cover}});"></div>
+				<audio src="{{audio}}" id="player" preload="auto" controls/>
+			</div>
+		</div>	
 	</script>
 </body>
 </html>
